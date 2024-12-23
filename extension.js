@@ -15,10 +15,61 @@
 
 const BINDINGS = [
   {
-    shortcut: 'F12',
-    title: 'Terminator',
-    command: 'terminator'
+    shortcut: '<ctrl><alt>g',
+    title: 'Google-chrome',
+    command: 'google-chrome'
   },
+  {
+    shortcut: '<ctrl><alt>f',
+    title: 'Firefox',
+    command: 'firefox'
+  },
+  {
+    shortcut: '<ctrl><alt>e',
+    title: 'Emacs',
+    command: 'emacs'
+  },
+  {
+    shortcut: '<ctrl><alt>n',
+    title: 'Nautilus',
+    command: 'nautilus'
+  },
+  {
+    shortcut: '<ctrl><alt>w',
+    title: 'Wechat',
+    command: 'wechat'
+  },
+  {
+    shortcut: '<ctrl><alt>u',
+    title: 'Gnome-control-center',
+    command: 'gnome-control-center'
+  },
+  {
+    shortcut: '<ctrl><alt>k',
+    title: 'Kitty',
+    command: 'kitty'
+  },
+  {
+    shortcut: '<ctrl><alt>s',
+    title: 'Localsend_app',
+    command: 'localsend_app'
+  },
+  {
+    shortcut: '<ctrl><alt>p',
+    title: 'Okular',
+    command: 'okular'
+  },
+  {
+    shortcut: '<ctrl><alt>v',
+    title: 'com-azefsw-audioconnect-desktop-app-MainKt',
+    command: '/opt/audiorelay/bin/AudioRelay'
+  },
+  {
+    shortcut: '<ctrl><alt>m',
+    title: 'Harmonymusic',
+    command: 'harmonymusic'
+  },
+
   // More bindings can be added, for example:
   // {
   //   shortcut: 'F11',
