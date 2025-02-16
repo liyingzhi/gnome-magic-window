@@ -6,7 +6,7 @@
     Send("{PrintScreen}")  ; 模拟按下 Print Screen 键
 }
 
-; 用于打开 emacs
+; 注册快捷键 `Ctrl+Alt+E` 用于打开 emacs
 ^!e::
 {
     ; 定义 Emacs 的可执行文件路径
@@ -24,7 +24,7 @@
     }
 }
 
-; 用于打开 edge 浏览器
+; 注册快捷键 `Ctrl+Alt+f` 用于打开 edge 浏览器
 ^!f::
 {
     ; 定义 Emacs 的可执行文件路径
@@ -38,7 +38,7 @@
     }
 }
 
-; 用于关闭当前光标所在 app
+; 注册快捷键 `Ctrl+Alt+c` 用于关闭当前光标所在 app
 ^!c::
 {
     MouseGetPos , , &id, &control
@@ -46,7 +46,7 @@
     WinClose id
 }
 
-; 用于最大化/正常化光标下激活的窗口
+; 注册快捷键 `Ctrl+Shift+f` 用于最大化/正常化光标下激活的窗口
 ^+f::
 {
     MouseGetPos , , &id, &control
@@ -68,20 +68,20 @@
     }
 }
 
-; 用于恢复正常化窗口
+; 注册快捷键 `Ctrl+Shift+r` 用于恢复正常化窗口
 ^+r::
 {
     MouseGetPos , , &id, &control
     WinRestore id
 }
 
-; 用于模拟发送 Win+d 按键，用于显示桌面
+; 注册快捷键 `Ctrl+Alt+D` 用于模拟发送 Win+d 按键，用于显示桌面
 ^!d::
 {
       Send("#d")
 }
 
-; 用于打开文件管理器
+; 注册快捷键 `Ctrl+Alt+N` 用于打开文件管理器
 ^!n::
 {
     try
@@ -100,7 +100,7 @@
 
 }
 
-; 用于打开 localsend 应用
+; 注册快捷键 `Ctrl+Alt+S` 用于打开 localsend 应用
 ^!s::
 {
     try
