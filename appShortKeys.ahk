@@ -194,8 +194,8 @@
         else
         {
            ; 指定要打开的文件夹路径
-           folderPath := "C:/Users/liyin/Downloads"
-           folderCmd := "C:/Windows/SysWOW64/explorer.exe "
+           folderPath := "C:\Users\liyin\Downloads"
+           folderCmd := "C:\Windows\SysWOW64\explorer.exe "
            folderCmd_path := folderCmd . folderPath
 
            ; 打开文件夹
