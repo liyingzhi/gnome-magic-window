@@ -1,5 +1,25 @@
 ﻿#Requires AutoHotkey v2.0
 
+;;; 如果 flowLaunch 没有启动的话，启动
+{
+    ; 定义 flowLaunch 的可执行文件路径
+    flowLaunchPath := "C:\Users\liyin\scoop\apps\flow-launcher\current\Flow.Launcher.exe"
+    if not WinExist("ahk_exe Flow.Launcher.exe")
+    {
+        Run flowLaunchPath
+    }
+}
+
+;;; 如果 flameShot 没有启动的话，启动
+{
+    ; 定义 flameShot 的可执行文件路径
+    flameShotPath := "D:\Program Files\Flameshot\bin\flameshot.exe"
+    if not WinExist("ahk_exe flameshot.exe")
+    {
+        Run flameShotPath
+    }
+}
+
 ;;; 注册快捷键 `Ctrl+Alt+J` 用于测试 debug
 ^!j::
 {
@@ -174,7 +194,7 @@
         else
         {
            ; 指定要打开的文件夹路径
-           folderPath := "D:\"
+           folderPath := "C:/Users/liyin/Downloads"
            folderCmd := "C:/Windows/SysWOW64/explorer.exe "
            folderCmd_path := folderCmd . folderPath
 
