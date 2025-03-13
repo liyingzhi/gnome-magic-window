@@ -229,3 +229,11 @@
         MsgBox "未找到窗口。"
     }
 }
+
+;;; 对于当前激活 Emacs 来说, 使用 Capslock 键作为 Ctrl; Shift+Capslock 组合键作为切换大小写
+{
+    #HotIf WinActive("ahk_class Emacs")  ; if in emacs
+    +Capslock::Capslock                   ; make shift+Caps-Lock the Caps Lock toggle
+    Capslock::Control                     ; make Caps Lock the control button
+    #HotIf                                ; end if in emacs
+}
