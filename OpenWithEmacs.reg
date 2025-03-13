@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell]
+[HKEY_CLASSES_ROOT\*\shell\openwemacs]
+@="&Edit with Emacs"
+[HKEY_CLASSES_ROOT\*\shell\openwemacs\command]
+@="D:\\Program Files\\emacs-29.4\\bin\\emacsclientw.exe -n -f  \"D:\\EmacsConfig\\.emacs.d\\server\\server\" \"%1\""
+[HKEY_CLASSES_ROOT\Directory\shell\openwemacs]
+@="Edit &with Emacs"
+[HKEY_CLASSES_ROOT\Directory\shell\openwemacs\command]
+@="D:\\Program Files\\emacs-29.4\\bin\\emacsclientw.exe -n -f  \"D:\EmacsConfig\.emacs.d\server\server\" \"%1\""
