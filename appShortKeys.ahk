@@ -154,8 +154,8 @@
     }
 }
 
-;;; 注册快捷键 `Ctrl+Alt+K` 用于打开 cmd
-^!k::
+;;; 注册快捷键 `Ctrl+Alt+M` 用于打开 cmd
+^!m::
 {
     ; 定义 cmd 的可执行文件路径
     cmdPath := "C:\Windows\System32\cmd.exe"
@@ -165,6 +165,20 @@
     }
     else   {
         Run cmdPath
+    }
+}
+
+;;; 注册快捷键 `Ctrl+Alt+K` 用于打开 mintty
+^!k::
+{
+    ; 定义 cmd 的可执行文件路径
+    minttyPath := "c:\Users\liyin\scoop\shims\git-bash.exe"
+    if WinExist("ahk_exe mintty.exe")
+    {
+        WinActivate
+    }
+    else   {
+        Run minttyPath
     }
 }
 
