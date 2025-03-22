@@ -168,10 +168,24 @@
     }
 }
 
-;;; 注册快捷键 `Ctrl+Alt+K` 用于打开 mintty
+;;; 注册快捷键 `Ctrl+Alt+K` 用于打开 alacritty
 ^!k::
 {
-    ; 定义 cmd 的可执行文件路径
+    ; 定义 aracritty 的可执行文件路径
+    alacrittyPath := "C:\Users\liyin\scoop\apps\alacritty\current\alacritty.exe"
+    if WinExist("ahk_exe alacritty.exe")
+    {
+        WinActivate
+    }
+    else   {
+        Run alacrittyPath
+    }
+}
+
+;;; 注册快捷键 `Ctrl+Alt+B` 用于打开 mintty
+^!b::
+{
+    ; 定义 mintty 的可执行文件路径
     minttyPath := "c:\Users\liyin\scoop\shims\git-bash.exe"
     if WinExist("ahk_exe mintty.exe")
     {
