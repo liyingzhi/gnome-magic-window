@@ -1,5 +1,5 @@
 ﻿#Requires AutoHotkey v2.0
-
+#SingleInstance Force
 ;;; 如果 flowLaunch 没有启动的话，启动
 {
     ; 定义 flowLaunch 的可执行文件路径
@@ -264,4 +264,73 @@
     +Capslock::Capslock                   ; make shift+Caps-Lock the Caps Lock toggle
     Capslock::Control                     ; make Caps Lock the control button
     #HotIf                                ; end if in emacs
+}
+
+;;; 对于当前激活 office word 来说, 使用 emacs 的快捷键来操作一些指令
+{
+      ; 只在Word激活时启用Emacs快捷键
+      #HotIf WinActive("ahk_class OpusApp")
+
+      ;^X^F::Send "^o"          ; Ctrl+X Ctrl+F → 打开文件
+      ;^X^S::Send "^s"          ; Ctrl+X Ctrl+S → 保存文件
+      ;^X^W::Send "^+s"         ; Ctrl+X Ctrl+W → 另存为
+      ;^X^C::Send "!{F4}"       ; Ctrl+X Ctrl+C → 退出Word
+      ;^X^H::Send "^a"          ; Ctrl+X Ctrl+H → 全选
+
+      ; Ctrl+X, Ctrl+F → 打开文件
+      ^x::
+      {
+          ; 等待下一个按键
+          CtrlC := Chr(3) ; Store the character for Ctrl-C in the CtrlC var
+          ih := InputHook("L1 M")
+          ih.Start()
+          ih.Wait()
+          if (ih.Input = CtrlC) {
+             Send "!{F4}"       ; Ctrl+X Ctrl+C → 退出Word
+          }
+      }
+
+      ; 光标移动
+      ^F::Send "{Right}"       ; Ctrl+F → 向右移动 (forward)
+      ^B::Send "{Left}"        ; Ctrl+B → 向左移动 (backward)
+      ^N::Send "{Down}"        ; Ctrl+N → 向下移动 (next line)
+      ^P::Send "{Up}"          ; Ctrl+P → 向上移动 (previous line)
+      ^A::Send "{Home}"        ; Ctrl+A → 行首
+      ^E::Send "{End}"         ; Ctrl+E → 行尾
+      !F::Send "^{Right}"      ; Alt+F → 向前移动一个单词
+      !B::Send "^{Left}"       ; Alt+B → 向后移动一个单词
+      !<::Send "^{Home}"       ; Alt+< → 文档开头
+      !>::Send "^{End}"        ; Alt+> → 文档结尾
+
+      ; 编辑操作
+      ^D::Send "{Delete}"      ; Ctrl+D → 删除右侧字符
+      ^H::Send "{Backspace}"   ; Ctrl+H → 删除左侧字符
+      !D::Send "^{Delete}"     ; Alt+D → 删除右侧单词
+      ^K::                      ; Ctrl+K → 剪切到行尾
+      {
+          Send "{ShiftDown}{End}{ShiftUp}"
+          Send "^x"
+      }
+      ^W::Send "^x"            ; Ctrl+W → 剪切选区
+      !W::Send "^c"            ; Alt+W → 复制选区
+      ^Y::Send "^v"            ; Ctrl+Y → 粘贴
+      ^/::Send "^z"            ; Ctrl+/ → 撤销 (Emacs中通常是C-/或C-_)
+      ^_::Send "^z"            ; Ctrl+_ → 撤销 (另一种Emacs风格)
+
+      ; 搜索
+      ^S::Send "^f"            ; Ctrl+S → 搜索
+      ^R::Send "^h"            ; Ctrl+R → 替换
+      ^G::                      ; Ctrl+G → 取消操作
+      {
+          if WinExist("查找和替换")
+              Send "{Escape}"
+          else
+              Send "{Escape}"
+      }
+
+      ; 其他常用Emacs快捷键
+      ^O::Send "{Enter}"       ; Ctrl+O → 插入新行
+
+      ; 恢复默认的Word快捷键
+      #HotIf
 }
