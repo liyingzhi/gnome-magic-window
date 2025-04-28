@@ -1,5 +1,13 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
+
+;;; 注册快捷键 `Ctrl+Shift+s` toggle 暂停 hotkeys
+{
+#SuspendExempt
+^+s::Suspend  ; Ctrl+Shift+S
+#SuspendExempt False
+}
+
 ;;; 如果 flowLaunch 没有启动的话，启动
 {
     ; 定义 flowLaunch 的可执行文件路径
