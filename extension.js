@@ -50,6 +50,11 @@ const BINDINGS = [
     command: 'kitty'
   },
   {
+	shortcut: '<ctrl><alt>b',
+	title: 'Gnome-terminal',
+	command: 'gnome-terminal'
+  },
+  {
     shortcut: '<ctrl><alt>s',
     title: 'Localsend_app',
     command: 'localsend_app'
