@@ -1,0 +1,13 @@
+* dconf
+** dconf export
+#+begin_src bash-ts
+  dconf dump /org/gnome/desktop/wm/keybindings/ > wm_keybindings.conf
+  dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > media_keys.conf
+  dconf dump /org/gnome/shell/keybindings/ > shell_keybindings.conf
+#+end_src
+** dconf import
+#+begin_src bash-ts
+  dconf load /org/gnome/desktop/wm/keybindings/ < wm_keybindings.conf
+  dconf load /org/gnome/settings-daemon/plugins/media-keys/ < media_keys.conf
+  dconf load /org/gnome/shell/keybindings/ < shell_keybindings.conf
+#+end_src
