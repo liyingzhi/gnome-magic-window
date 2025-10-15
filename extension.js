@@ -29,6 +29,11 @@ const BINDINGS = [
     title: 'Emacs',
     command: 'emacs'
   },
+ {
+    shortcut: '<ctrl><alt>i',
+    title: 'Emacs',
+    command: 'igcemacs'
+  },
   {
     shortcut: '<ctrl><alt>n',
     title: 'Nautilus',
